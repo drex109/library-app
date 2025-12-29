@@ -14,7 +14,9 @@ function addBookToLibrary(name, author, pageCount) {
     
 }
 
-addBookToLibrary('The Hobbit', 'JRR Tolkien', '450');
+addBookToLibrary('The Hobbit', 'JRR Tolkien', '320');
+addBookToLibrary('The Adventures of Huckleberry Finn', 'Mark Twain', '362');
+addBookToLibrary('The Prose Edda', 'Snorri Sturluson', '300')
 console.log(myLibrary)
 
 let books = document.querySelector('.books');
@@ -24,8 +26,13 @@ function displayBooks(){
         const book = document.createElement('div');
         book.classList.add('book');
         books.appendChild(book);
-
-        const title = document.createElement('h2');
+        
+        let title;
+        if(myLibrary[i].name.length <= 10) {
+            title = document.createElement('h2');
+        } else {
+            title = document.createElement('h3');
+        }
         title.classList.add('title');
         title.textContent = `Title: ${myLibrary[i].name}`;
         book.appendChild(title);
