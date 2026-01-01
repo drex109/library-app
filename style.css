@@ -29,3 +29,17 @@
     display: grid;
     grid-template-rows: auto auto 1fr;
 }
+
+.new{
+    text-align: center;
+}
+button{
+    color: black;
+    border: none;
+    padding: 1rem;
+    font-size: 20px;
+    border-radius: 1rem;
+}
+button:hover{
+    background-color: darkgray;
+}

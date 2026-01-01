@@ -14,6 +14,11 @@ function addBookToLibrary(name, author, pageCount) {
     
 }
 
+const button = document.querySelector('button');
+button.addEventListener('click', function (e) {
+    console.log('button clicked!');
+})
+
 addBookToLibrary('The Hobbit', 'JRR Tolkien', '320');
 addBookToLibrary('The Adventures of Huckleberry Finn', 'Mark Twain', '362');
 addBookToLibrary('The Prose Edda', 'Snorri Sturluson', '300')
