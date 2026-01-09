@@ -43,3 +43,14 @@ button{
 button:hover{
     background-color: darkgray;
 }
+
+.form-container{
+    display: grid;
+    align-items: center;
+    justify-items: center;
+}
+dialog{
+    color: black;
+    background-color: rgb(35, 35, 35);
+    padding: 1rem;
+}
