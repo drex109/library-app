@@ -13,10 +13,12 @@ function addBookToLibrary(name, author, pageCount) {
     myLibrary.push(book);
     
 }
+const dialog = document.querySelector('dialog');
+const openDialog = document.querySelector('#open-dialog');
+const closeDialog = document.querySelector('#close-dialog')
 
-const button = document.querySelector('button');
-button.addEventListener('click', function (e) {
-    console.log('button clicked!');
+openDialog.addEventListener('click', function (e) {
+    dialog.showModal();
 })
 
 addBookToLibrary('The Hobbit', 'JRR Tolkien', '320');

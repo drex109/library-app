@@ -41,14 +41,24 @@
             </div> -->
         </div>
         <div class="new">
-            <button>New Book</button>
+            <button id="open-dialog">New Book</button>
         </div>
         
         <div class="form-container">
-            <dialog open>
-                <p>go fuck off</p>
-                <form action="" method="dialog">
-                    <button>OK</button>
+            <dialog>
+                <p>New Book</p>
+                <form id="new-book" action="submit" method="dialog">
+                    
+                    <label for="title">Title</label>
+                    <input id="title" name="title" type="text">
+
+                    <label for="author">Author</label>
+                    <input id="author" name="author" type="text">
+
+                    <label for="page-count">Page Count</label>
+                    <input id="page-count" name="pagecount" type="text">
+
+                    <button id="close-dialog">Add Book</button>
                 </form>
             </dialog>
         </div>
