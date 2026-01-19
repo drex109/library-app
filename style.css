@@ -50,9 +50,12 @@ button:hover{
     justify-items: center;
 }
 dialog{
-    color: black;
+    border: none;
     background-color: rgb(35, 35, 35);
     padding: 1rem;
     margin: auto;
     border-radius: 1rem;
+}
+input{
+    color: black;
 }

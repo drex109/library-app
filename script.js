@@ -15,10 +15,17 @@ function addBookToLibrary(name, author, pageCount) {
 }
 const dialog = document.querySelector('dialog');
 const openDialog = document.querySelector('#open-dialog');
-const closeDialog = document.querySelector('#close-dialog')
+const form = document.querySelector('#new-book');
 
 openDialog.addEventListener('click', function (e) {
     dialog.showModal();
+})
+
+form.addEventListener('submit', function (e) {
+    const data = Object.fromEntries(new FormData(form));
+    console.log(data);
+    addBookToLibrary(data.title, data.author, data.pageCount);
+    displayBooks();
 })
 
 addBookToLibrary('The Hobbit', 'JRR Tolkien', '320');

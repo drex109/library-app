@@ -47,18 +47,18 @@
         <div class="form-container">
             <dialog>
                 <p>New Book</p>
-                <form id="new-book" action="submit" method="dialog">
+                <form id="new-book" method="dialog">
                     
                     <label for="title">Title</label>
-                    <input id="title" name="title" type="text">
+                    <input id="title" name="title" type="text" required>
 
                     <label for="author">Author</label>
-                    <input id="author" name="author" type="text">
+                    <input id="author" name="author" type="text" required>
 
                     <label for="page-count">Page Count</label>
-                    <input id="page-count" name="pagecount" type="text">
+                    <input id="page-count" name="pageCount" type="number" min="1" required>
 
-                    <button id="close-dialog">Add Book</button>
+                    <button type="submit">Add Book</button>
                 </form>
             </dialog>
         </div>
