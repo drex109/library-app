@@ -24,6 +24,7 @@ openDialog.addEventListener('click', function (e) {
 form.addEventListener('submit', function (e) {
     const data = Object.fromEntries(new FormData(form));
     console.log(data);
+    myLibrary.length = 0;
     addBookToLibrary(data.title, data.author, data.pageCount);
     displayBooks();
 })

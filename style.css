@@ -7,6 +7,7 @@
 .main{
     background-color: black;
     height: 100vh;
+    overflow: auto;
 }
 .header{
     text-align: center;
