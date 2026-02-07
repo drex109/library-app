@@ -66,10 +66,20 @@ function displayBooks(){
         idCode.classList.add('id');
         idCode.textContent = myLibrary[i].id;
         book.appendChild(idCode);
+
+        const remove = document.createElement('button');
+        remove.classList.add('remove');
+        remove.textContent = 'Remove'
+        book.appendChild(remove)
+        remove.addEventListener('click', function(e) {
+            books.removeChild(book);
+        })
+
     }
 }
 
 displayBooks();
+
 
 // let hobbit = new Book("The Hobbit", "JRR Tolkien", "350");
 // console.log(hobbit);

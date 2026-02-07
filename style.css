@@ -34,11 +34,17 @@
 .new{
     text-align: center;
 }
-button{
+#open-dialog, #submit-book{
     color: black;
     border: none;
     padding: 1rem;
     font-size: 20px;
+    border-radius: 1rem;
+}
+.remove{
+    color: black;
+    width: 4rem;
+    border: none;
     border-radius: 1rem;
 }
 button:hover{
