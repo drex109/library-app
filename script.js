@@ -67,6 +67,8 @@ function displayBooks(){
         idCode.textContent = myLibrary[i].id;
         book.appendChild(idCode);
 
+        // const read = document.createElement('');
+
         const remove = document.createElement('button');
         remove.classList.add('remove');
         remove.textContent = 'Remove'

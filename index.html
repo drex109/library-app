@@ -22,19 +22,32 @@
             <dialog>
                 <h2>New Book</h2>
                 <form id="new-book" method="dialog">
-                    <div>
+                    <div class="inputs">
                         <label for="title">Title</label>
                         <input id="title" name="title" type="text" required>
                     </div>
                     
-                    <div>
+                    <div class="inputs">
                         <label for="author">Author</label>
                         <input id="author" name="author" type="text" required>
                     </div>
                     
-                    <div>
+                    <div class="inputs">
                         <label for="page-count">Page Count</label>
                         <input id="page-count" name="pageCount" type="number" min="1" required>
+                    </div>
+
+                    <div class="inputs">
+                        <p>Have you read this book?</p>
+                        
+                        <div>
+                            <label for="yes">Yes</label>
+                            <input id="yes" name="read-status" value="yes" type="radio" checked>
+                        </div>
+                        <div>
+                            <label for="no">No</label>
+                            <input id="no"  name="read-status" value="no" type="radio">
+                        </div>
                     </div>
                     
                     <button id="submit-book" type="submit">Add Book</button>
