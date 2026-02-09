@@ -34,7 +34,7 @@
 .new{
     text-align: center;
 }
-#open-dialog, #submit-book{
+#open-dialog, #close-dialog, #submit-book{
     color: black;
     border: none;
     padding: 1rem;
@@ -65,11 +65,23 @@ dialog h2{
     display: grid;
     gap: 1rem;
     padding: 1rem;
+    font-size: 18px;
+    font-weight: bold;
 }
 .inputs{
     display: grid;
-    gap: 1rem;
 }
 .inputs input{
     color: black;
+    border: none;
+    padding: .5rem;
+    border-radius: .5rem;
+    font-size: 18px;
+}
+.radio{
+    display: grid;
+    grid-template-columns: 1fr 4fr;
+    align-items: center;
+    justify-items: center;
+    margin-top: .2rem;
 }

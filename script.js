@@ -15,10 +15,14 @@ function addBookToLibrary(name, author, pageCount) {
 }
 const dialog = document.querySelector('dialog');
 const openDialog = document.querySelector('#open-dialog');
+const closeDialog = document.querySelector('#close-dialog');
 const form = document.querySelector('#new-book');
 
 openDialog.addEventListener('click', function (e) {
     dialog.showModal();
+})
+closeDialog.addEventListener('click', function(e) {
+    dialog.close()
 })
 
 form.addEventListener('submit', function (e) {
