@@ -1,14 +1,16 @@
 const myLibrary = [];
 
-function Book(name, author, pageCount) {
+function Book(name, author, pageCount, read) {
     this.name = name;
     this.author = author;
-    this.pageCount = pageCount;
+    this.pageCount = Number(pageCount);
+    this.read = Boolean(read);
     this.id = crypto.randomUUID();
 }
 
-function addBookToLibrary(name, author, pageCount) {
-    let book = new Book(name, author, pageCount);
+function addBookToLibrary(name, author, pageCount, read) {
+    console.log(read)
+    let book = new Book(name, author, pageCount, read);
     console.log(book);
     myLibrary.push(book);
     
@@ -28,14 +30,16 @@ closeDialog.addEventListener('click', function(e) {
 form.addEventListener('submit', function (e) {
     const data = Object.fromEntries(new FormData(form));
     console.log(data);
+    console.log(data.read)
+    data.read = data.read === 'true';
     myLibrary.length = 0;
-    addBookToLibrary(data.title, data.author, data.pageCount);
+    addBookToLibrary(data.title, data.author, data.pageCount, data.read);
     displayBooks();
 })
 
-addBookToLibrary('The Hobbit', 'JRR Tolkien', '320');
-addBookToLibrary('The Adventures of Huckleberry Finn', 'Mark Twain', '362');
-addBookToLibrary('The Prose Edda', 'Snorri Sturluson', '300')
+addBookToLibrary('The Hobbit', 'JRR Tolkien', '320', true);
+addBookToLibrary('The Adventures of Huckleberry Finn', 'Mark Twain', '362', false);
+addBookToLibrary('The Prose Edda', 'Snorri Sturluson', '300', true);
 console.log(myLibrary)
 
 let books = document.querySelector('.books');
@@ -66,12 +70,22 @@ function displayBooks(){
         pages.textContent = `Page Count: ${myLibrary[i].pageCount}`;
         book.appendChild(pages);
 
+        
+        let haveRead = myLibrary[i].read
+        console.log(haveRead);
+        haveRead ? haveRead = 'Yes' : haveRead = 'No';
+
+
+        const read = document.createElement('p');
+        read.classList.add('have-read');
+        read.textContent = `Read: ${haveRead}`
+        book.appendChild(read);
+
         const idCode = document.createElement('p')
         idCode.classList.add('id');
         idCode.textContent = myLibrary[i].id;
         book.appendChild(idCode);
-
-        // const read = document.createElement('');
+        
 
         const remove = document.createElement('button');
         remove.classList.add('remove');
