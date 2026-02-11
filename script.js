@@ -70,16 +70,39 @@ function displayBooks(){
         pages.textContent = `Page Count: ${myLibrary[i].pageCount}`;
         book.appendChild(pages);
 
-        
+        const readToggle = document.createElement('div');
+        readToggle.classList = 'read-toggle'
+        const check = document.createElement('input');
+        check.type = 'checkbox';
+        check.id = 'check';
+        check.classList = 'check'
+
         let haveRead = myLibrary[i].read
         console.log(haveRead);
+        check.value = haveRead
+        check.checked = haveRead;
         haveRead ? haveRead = 'Yes' : haveRead = 'No';
 
+        const label = document.createElement('label');
+        label.htmlFor = 'check';
+        label.textContent = `Read: ${haveRead}`;
 
-        const read = document.createElement('p');
-        read.classList.add('have-read');
-        read.textContent = `Read: ${haveRead}`
-        book.appendChild(read);
+        readToggle.appendChild(check);
+        readToggle.appendChild(label);
+
+        // const read = document.createElement('p');
+        // read.classList.add('have-read');
+        // read.textContent = `Read: ${haveRead}`
+        // readToggle.appendChild(read)
+        book.appendChild(readToggle);
+
+        check.addEventListener('change', function(e) {
+            if(this.checked) {
+                label.textContent = 'Read: Yes'
+            } else {
+                label.textContent = 'Read: No'
+            }
+        })
 
         const idCode = document.createElement('p')
         idCode.classList.add('id');
