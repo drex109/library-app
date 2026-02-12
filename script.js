@@ -42,9 +42,15 @@ addBookToLibrary('The Adventures of Huckleberry Finn', 'Mark Twain', '362', fals
 addBookToLibrary('The Prose Edda', 'Snorri Sturluson', '300', true);
 console.log(myLibrary)
 
+function randomColor() {
+    const color = Math.floor(Math.random()*16777215).toString(16);
+    return '#' + color.padStart(6, '0')
+}
+
 let books = document.querySelector('.books');
 
 function displayBooks(){
+    // need to clear before calling rather than clearing the array in the form submition. The array must remain the absolute truth. The UI comes after.
     books.innerHTML = ''
     for(let i = 0; i < myLibrary.length; i++) {
         const book = document.createElement('div');
@@ -105,6 +111,7 @@ function displayBooks(){
             }
             console.log(book);
             console.log(myLibrary[i])
+            // need prototype function to change read status
         })
 
         const idCode = document.createElement('p')
@@ -124,6 +131,8 @@ function displayBooks(){
             console.log(myLibrary)
         })
         
+        book.style.backgroundColor = randomColor();
+        // changes all book covers everytime the function is called, so as soon as a book is added everything changes abruptly 
 
     }
 }
