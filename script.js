@@ -32,9 +32,9 @@ form.addEventListener('submit', function (e) {
     console.log(data);
     console.log(data.read)
     data.read = data.read === 'true';
-    myLibrary.length = 0;
     addBookToLibrary(data.title, data.author, data.pageCount, data.read);
     displayBooks();
+    console.log(myLibrary)
 })
 
 addBookToLibrary('The Hobbit', 'JRR Tolkien', '320', true);
@@ -45,6 +45,7 @@ console.log(myLibrary)
 let books = document.querySelector('.books');
 
 function displayBooks(){
+    books.innerHTML = ''
     for(let i = 0; i < myLibrary.length; i++) {
         const book = document.createElement('div');
         book.classList.add('book');
@@ -102,6 +103,8 @@ function displayBooks(){
             } else {
                 label.textContent = 'Read: No'
             }
+            console.log(book);
+            console.log(myLibrary[i])
         })
 
         const idCode = document.createElement('p')
@@ -115,8 +118,12 @@ function displayBooks(){
         remove.textContent = 'Remove'
         book.appendChild(remove)
         remove.addEventListener('click', function(e) {
+            myLibrary.splice(i, 1);
             books.removeChild(book);
+            console.log(books)
+            console.log(myLibrary)
         })
+        
 
     }
 }
