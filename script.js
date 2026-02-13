@@ -5,6 +5,7 @@ function Book(name, author, pageCount, read) {
     this.author = author;
     this.pageCount = Number(pageCount);
     this.read = Boolean(read);
+    this.color = '#' + Math.floor(Math.random()*16777215).toString(16).padStart(6, '0');
     this.id = crypto.randomUUID();
 }
 
@@ -42,10 +43,7 @@ addBookToLibrary('The Adventures of Huckleberry Finn', 'Mark Twain', '362', fals
 addBookToLibrary('The Prose Edda', 'Snorri Sturluson', '300', true);
 console.log(myLibrary)
 
-function randomColor() {
-    const color = Math.floor(Math.random()*16777215).toString(16);
-    return '#' + color.padStart(6, '0')
-}
+
 
 let books = document.querySelector('.books');
 
@@ -131,9 +129,8 @@ function displayBooks(){
             console.log(myLibrary)
         })
         
-        book.style.backgroundColor = randomColor();
-        // changes all book covers everytime the function is called, so as soon as a book is added everything changes abruptly 
-
+        book.style.backgroundColor = myLibrary[i].color
+        // By changing making the random color intrinsic to the Book object, I avoid creating bugs and discrepancies between the UI and the underlying data that informs that UI
     }
 }
 
