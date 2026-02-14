@@ -9,6 +9,11 @@ function Book(name, author, pageCount, read) {
     this.id = crypto.randomUUID();
 }
 
+Book.prototype.boxClick = function() {
+    this.read = !this.read;
+    return this.read;
+}
+
 function addBookToLibrary(name, author, pageCount, read) {
     console.log(read)
     let book = new Book(name, author, pageCount, read);
@@ -43,8 +48,6 @@ addBookToLibrary('The Adventures of Huckleberry Finn', 'Mark Twain', '362', fals
 addBookToLibrary('The Prose Edda', 'Snorri Sturluson', '300', true);
 console.log(myLibrary)
 
-
-
 let books = document.querySelector('.books');
 
 function displayBooks(){
@@ -53,6 +56,7 @@ function displayBooks(){
     for(let i = 0; i < myLibrary.length; i++) {
         const book = document.createElement('div');
         book.classList.add('book');
+        book.setAttribute('data-uuid', myLibrary[i].id)
         books.appendChild(book);
         
         let title;
@@ -79,7 +83,7 @@ function displayBooks(){
         readToggle.classList = 'read-toggle'
         const check = document.createElement('input');
         check.type = 'checkbox';
-        check.id = 'check';
+        check.id = 'check ' + myLibrary[i].id;
         check.classList = 'check'
 
         let haveRead = myLibrary[i].read
@@ -89,7 +93,7 @@ function displayBooks(){
         haveRead ? haveRead = 'Yes' : haveRead = 'No';
 
         const label = document.createElement('label');
-        label.htmlFor = 'check';
+        label.htmlFor = check.id;
         label.textContent = `Read: ${haveRead}`;
 
         readToggle.appendChild(check);
@@ -101,12 +105,16 @@ function displayBooks(){
         // readToggle.appendChild(read)
         book.appendChild(readToggle);
 
-        check.addEventListener('change', function(e) {
-            if(this.checked) {
+        check.addEventListener('change', (e) => {
+            myLibrary[i].boxClick(e);
+
+            if(e.target.checked) {
                 label.textContent = 'Read: Yes'
             } else {
                 label.textContent = 'Read: No'
             }
+            check.checked = myLibrary[i].read;
+            check.value = myLibrary[i].read;
             console.log(book);
             console.log(myLibrary[i])
             // need prototype function to change read status
