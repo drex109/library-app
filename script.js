@@ -19,8 +19,8 @@ function addBookToLibrary(name, author, pageCount, read) {
     let book = new Book(name, author, pageCount, read);
     console.log(book);
     myLibrary.push(book);
-    
 }
+
 const dialog = document.querySelector('dialog');
 const openDialog = document.querySelector('#open-dialog');
 const closeDialog = document.querySelector('#close-dialog');
@@ -51,7 +51,6 @@ console.log(myLibrary)
 let books = document.querySelector('.books');
 
 function displayBooks(){
-    // need to clear before calling rather than clearing the array in the form submition. The array must remain the absolute truth. The UI comes after.
     books.innerHTML = ''
     for(let i = 0; i < myLibrary.length; i++) {
         const book = document.createElement('div');
@@ -99,10 +98,6 @@ function displayBooks(){
         readToggle.appendChild(check);
         readToggle.appendChild(label);
 
-        // const read = document.createElement('p');
-        // read.classList.add('have-read');
-        // read.textContent = `Read: ${haveRead}`
-        // readToggle.appendChild(read)
         book.appendChild(readToggle);
 
         check.addEventListener('change', (e) => {
@@ -117,7 +112,6 @@ function displayBooks(){
             check.value = myLibrary[i].read;
             console.log(book);
             console.log(myLibrary[i])
-            // need prototype function to change read status
         })
 
         const idCode = document.createElement('p')
@@ -125,7 +119,6 @@ function displayBooks(){
         idCode.textContent = myLibrary[i].id;
         book.appendChild(idCode);
         
-
         const remove = document.createElement('button');
         remove.classList.add('remove');
         remove.textContent = 'Remove'
@@ -138,12 +131,7 @@ function displayBooks(){
         })
         
         book.style.backgroundColor = myLibrary[i].color
-        // By changing making the random color intrinsic to the Book object, I avoid creating bugs and discrepancies between the UI and the underlying data that informs that UI
     }
 }
 
 displayBooks();
-
-
-// let hobbit = new Book("The Hobbit", "JRR Tolkien", "350");
-// console.log(hobbit);
