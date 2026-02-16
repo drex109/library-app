@@ -15,9 +15,7 @@ Book.prototype.boxClick = function() {
 }
 
 function addBookToLibrary(name, author, pageCount, read) {
-    console.log(read)
     let book = new Book(name, author, pageCount, read);
-    console.log(book);
     myLibrary.push(book);
 }
 
@@ -35,18 +33,14 @@ closeDialog.addEventListener('click', function(e) {
 
 form.addEventListener('submit', function (e) {
     const data = Object.fromEntries(new FormData(form));
-    console.log(data);
-    console.log(data.read)
     data.read = data.read === 'true';
     addBookToLibrary(data.title, data.author, data.pageCount, data.read);
     displayBooks();
-    console.log(myLibrary)
 })
 
 addBookToLibrary('The Hobbit', 'JRR Tolkien', '320', true);
 addBookToLibrary('The Adventures of Huckleberry Finn', 'Mark Twain', '362', false);
 addBookToLibrary('The Prose Edda', 'Snorri Sturluson', '300', true);
-console.log(myLibrary)
 
 let books = document.querySelector('.books');
 
@@ -86,7 +80,6 @@ function displayBooks(){
         check.classList = 'check'
 
         let haveRead = myLibrary[i].read
-        console.log(haveRead);
         check.value = haveRead
         check.checked = haveRead;
         haveRead ? haveRead = 'Yes' : haveRead = 'No';
@@ -110,8 +103,6 @@ function displayBooks(){
             }
             check.checked = myLibrary[i].read;
             check.value = myLibrary[i].read;
-            console.log(book);
-            console.log(myLibrary[i])
         })
 
         const idCode = document.createElement('p')
@@ -126,8 +117,6 @@ function displayBooks(){
         remove.addEventListener('click', function(e) {
             myLibrary.splice(i, 1);
             books.removeChild(book);
-            console.log(books)
-            console.log(myLibrary)
         })
         
         book.style.backgroundColor = myLibrary[i].color
