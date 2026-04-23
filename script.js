@@ -1,12 +1,14 @@
 const myLibrary = [];
 
-function Book(name, author, pageCount, read) {
-    this.name = name;
-    this.author = author;
-    this.pageCount = Number(pageCount);
-    this.read = Boolean(read);
-    this.color = '#' + Math.floor(Math.random()*16777215).toString(16).padStart(6, '0');
-    this.id = crypto.randomUUID();
+class Book {
+    constructor(name, author, pageCount, read) {
+        this.name = name;
+        this.author = author;
+        this.pageCount = Number(pageCount);
+        this.read = Boolean(read);
+        this.color = '#' + Math.floor(Math.random()*16777215).toString(16).padStart(6, '0');
+        this.id = crypto.randomUUID();
+    }
 }
 
 Book.prototype.boxClick = function() {
