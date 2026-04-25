@@ -26,14 +26,14 @@ const openDialog = document.querySelector('#open-dialog');
 const closeDialog = document.querySelector('#close-dialog');
 const form = document.querySelector('#new-book');
 
-openDialog.addEventListener('click', function (e) {
+openDialog.addEventListener('click', function() {
     dialog.showModal();
 })
-closeDialog.addEventListener('click', function(e) {
+closeDialog.addEventListener('click', function() {
     dialog.close()
 })
 
-form.addEventListener('submit', function (e) {
+form.addEventListener('submit', function() {
     const data = Object.fromEntries(new FormData(form));
     data.read = data.read === 'true';
     addBookToLibrary(data.title, data.author, data.pageCount, data.read);
@@ -46,7 +46,7 @@ addBookToLibrary('The Prose Edda', 'Snorri Sturluson', '300', true);
 
 let books = document.querySelector('.books');
 
-function displayBooks(){
+function displayBooks() {
     books.innerHTML = ''
     for(let i = 0; i < myLibrary.length; i++) {
         const book = document.createElement('div');
